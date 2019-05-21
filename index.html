@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery+CSS3扑克洗牌和扑克牌翻转动画特效</title>
+
+<link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+
+<body>
+<div id="projects">
+    <div class="grid">
+      <div class="projects">
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="project ">
+          <div class="mask">
+            <div class="back"></div>
+            <div class="front"></div>
+          </div>
+        </div>
+        <div class="controls">
+          <span class="bottom"></span>
+          <span class="bottom"></span>
+          <span class="bottom"></span>
+          <div class="mask">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+  (function (doc, win) {
+    var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if(clientWidth>=750){
+          docEl.style.fontSize = '100px';
+        }else{
+          docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+        }
+      };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+</script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src='./sfAnimate.js'></script>
+<script type="text/javascript">
+  $(function(){
+    $('.controls').click(function(){
+      if($(this).hasClass('show')){
+        $(this).removeClass('show');
+        subMove();
+      }else{
+        $(this).addClass('show');
+        addMove();
+      }
+    })
+  })
+
+
+  function addMove(){
+    $('.project').each(function(index,item){
+      setTimeout(function(){
+       $(item).addClass('ani'+ index);
+     },index*300);
+    })
+  }
+
+  function subMove(){
+    $('.project').each(function(index,item){
+       $(item).removeClass('ani'+ index);
+    })
+  }
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
